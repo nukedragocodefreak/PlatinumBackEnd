@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using PE.BO.Models.Request;
 using PE.BO.Models.Response;
 
-namespace PE.DAL.Repository
+namespace PE.DAL.Interfaces
 {
-    public interface IDepartmentRepository
+    public interface IInvoiceRepository
     {
-        public Task<ApiGenericResponse> SaveDepartment(Department department);
+        public Task<ApiGenericResponse> SaveInvoice(Invoice invoice);
     }
 }

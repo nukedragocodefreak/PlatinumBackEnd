@@ -8,8 +8,7 @@ namespace PE.BO.Models.Response
 {
     public class ApiGenericResponse
     {
-        public int ResponseType { get; set; }
-        public object ResponseObject { get; set; }
-        public string ResponseMessage { get; set; }
+        public int ReturnStatus { get; set; }
+        public string ReturnMessage { get; set; }
     }
 }
