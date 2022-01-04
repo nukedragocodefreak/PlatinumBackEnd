@@ -19,7 +19,7 @@ namespace PE.DAL.Repositories
         {
             _connection = connection;
         }
-        public async Task<ApiGenericResponse> SaveCoverSheet(Supplier supplier)
+        public async Task<ApiGenericResponse> SaveSupplier(Supplier supplier)
         {
             var result = new ApiGenericResponse();
 

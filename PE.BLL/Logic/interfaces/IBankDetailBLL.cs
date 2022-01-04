@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using PE.BO.Models.Request;
 using PE.BO.Models.Response;
 
-namespace PE.DAL.Interfaces
+namespace PE.DAL.Repository
 {
-    public interface ISupplierRepository
+    public interface IBankDetailBLL
     {
-        public Task<ApiGenericResponse> SaveSupplier(Supplier supplier);
+        public Task<ApiGenericResponse> SaveBankDetail(BankDetail bankDetail);
     }
 }

@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Logic\" />
+    <ProjectReference Include="..\PE.BO\PE.BO.csproj" />
+    <ProjectReference Include="..\PE.DAL\PE.DAL.csproj" />
   </ItemGroup>
 
 </Project>

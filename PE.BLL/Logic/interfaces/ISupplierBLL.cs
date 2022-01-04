@@ -8,8 +8,8 @@ using PE.BO.Models.Response;
 
 namespace PE.DAL.Interfaces
 {
-    public interface ISupplierRepository
+    public interface ISupplierBLL
     {
-        public Task<ApiGenericResponse> SaveSupplier(Supplier supplier);
+        public Task<ApiGenericResponse> SaveCoverSheet(Supplier supplier);
     }
 }
