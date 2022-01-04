@@ -8,7 +8,7 @@ namespace PE.BO.Models.Request
 {
     public class Department
     {
-        public int DepartmentID { get; set; } //(int, not null)
+        //public int DepartmentID { get; set; } //(int, not null)
         public string DepartmentName { get; set; } //(varchar(50), null)
     }
 

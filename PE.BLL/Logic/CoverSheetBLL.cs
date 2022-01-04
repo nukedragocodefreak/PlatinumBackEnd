@@ -12,8 +12,8 @@ namespace PE.BLL.Logic
 {
     public class CoverSheetBLL : ICoverSheetBLL
     {
-        private readonly CoverSheetRepository _coverSheetRepository;
-        public CoverSheetBLL(CoverSheetRepository coverSheetRepository)
+        private readonly ICoverSheetRepository _coverSheetRepository;
+        public CoverSheetBLL(ICoverSheetRepository coverSheetRepository)
         {
             _coverSheetRepository = coverSheetRepository;
         }

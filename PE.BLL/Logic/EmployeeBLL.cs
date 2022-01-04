@@ -12,8 +12,8 @@ namespace PE.BLL.Logic
 {
     public class EmployeeBLL : IEmployeeBLL
     {
-        private readonly EmployeeRepository _employeeRepository;
-        public EmployeeBLL(EmployeeRepository employeeRepository)
+        private readonly IEmployeeRepository _employeeRepository;
+        public EmployeeBLL(IEmployeeRepository employeeRepository)
         {
             _employeeRepository = employeeRepository;
         }

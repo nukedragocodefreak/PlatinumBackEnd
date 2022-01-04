@@ -12,8 +12,8 @@ namespace PE.BLL.Logic
 {
     public class BankDetailBLL : IBankDetailBLL
     {
-        private readonly BankDetailRepository _bankDetailRepository;
-        public BankDetailBLL(BankDetailRepository bankDetailRepository)
+        private readonly IBankDetailRepository _bankDetailRepository;
+        public BankDetailBLL(IBankDetailRepository bankDetailRepository)
         {
             _bankDetailRepository = bankDetailRepository;
         }

@@ -12,8 +12,8 @@ namespace PE.BLL.Logic
 {
     public class DepartmentBLL : IDepartmentBLL
     {
-        private readonly DepartmentRepository _departmentRepository;
-        public DepartmentBLL(DepartmentRepository departmentRepository)
+        private readonly IDepartmentRepository _departmentRepository;
+        public DepartmentBLL(IDepartmentRepository departmentRepository)
         {
             _departmentRepository = departmentRepository;
         }

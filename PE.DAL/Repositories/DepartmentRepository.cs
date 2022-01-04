@@ -24,7 +24,7 @@ namespace PE.DAL.Repositories
             var result = new ApiGenericResponse();
 
             var departmentDT = new DataTable();
-            departmentDT.Columns.Add("Address", typeof(string));
+            departmentDT.Columns.Add("DepartmentName", typeof(string));
 
             departmentDT.Rows.Add(department.DepartmentName);
 
@@ -35,7 +35,7 @@ namespace PE.DAL.Repositories
 
             using (IDbConnection conn = _connection.GetMyConnection(BO.Enums.ORM.Dapper))
             {
-                result = await conn.QueryFirstOrDefaultAsync<ApiGenericResponse>("SaveCompany", spParams, commandType: CommandType.StoredProcedure);
+                result = await conn.QueryFirstOrDefaultAsync<ApiGenericResponse>("SaveDepartment", spParams, commandType: CommandType.StoredProcedure);
             }
 
             return result;

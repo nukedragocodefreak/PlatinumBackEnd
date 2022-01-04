@@ -12,8 +12,8 @@ namespace PE.BLL.Logic
 {
     public class CompanyBLL : ICompanyBLL
     {
-        private readonly CompanyRepository _companyRepository;
-        public CompanyBLL(CompanyRepository  companyRepository)
+        private readonly ICompanyRepository _companyRepository;
+        public CompanyBLL(ICompanyRepository  companyRepository)
         {
             _companyRepository = companyRepository;
         }

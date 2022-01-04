@@ -43,7 +43,7 @@ namespace PE.DAL.Repositories
 
             using (IDbConnection conn = _connection.GetMyConnection(BO.Enums.ORM.Dapper))
             {
-                result = await conn.QueryFirstOrDefaultAsync<ApiGenericResponse>("SaveCompany", spParams, commandType: CommandType.StoredProcedure);
+                result = await conn.QueryFirstOrDefaultAsync<ApiGenericResponse>("SaveSupplier", spParams, commandType: CommandType.StoredProcedure);
             }
 
             return result;

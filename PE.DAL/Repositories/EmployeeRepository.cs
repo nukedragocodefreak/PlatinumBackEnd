@@ -12,6 +12,7 @@ using PE.DAL.Repository;
 
 namespace PE.DAL.Repositories
 {
+
     public class EmployeeRepository : IEmployeeRepository
     {
         private readonly IDbContextFactory _connection;
@@ -27,14 +28,14 @@ namespace PE.DAL.Repositories
             employeeDT.Columns.Add("EmployeeCode", typeof(string));
             employeeDT.Columns.Add("FirstName", typeof(string));
             employeeDT.Columns.Add("LastName", typeof(string));
+            employeeDT.Columns.Add("FK_DepartmentID", typeof(int));
             employeeDT.Columns.Add("Position", typeof(string));
             employeeDT.Columns.Add("Signature", typeof(string));
-            employeeDT.Columns.Add("FK_DepartmentID", typeof(int));
 
             employeeDT.Rows.Add(employee.EmployeeCode,
                                      employee.FirstName,
-                                     employee.FK_DepartmentID,
                                      employee.LastName,
+                                     employee.FK_DepartmentID,
                                      employee.Position,
                                      employee.Signature);
 
@@ -45,7 +46,7 @@ namespace PE.DAL.Repositories
 
             using (IDbConnection conn = _connection.GetMyConnection(BO.Enums.ORM.Dapper))
             {
-                result = await conn.QueryFirstOrDefaultAsync<ApiGenericResponse>("SaveCompany", spParams, commandType: CommandType.StoredProcedure);
+                result = await conn.QueryFirstOrDefaultAsync<ApiGenericResponse>("SaveEmployee", spParams, commandType: CommandType.StoredProcedure);
             }
 
             return result;

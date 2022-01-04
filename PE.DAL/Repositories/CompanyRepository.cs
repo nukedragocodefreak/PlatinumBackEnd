@@ -25,14 +25,14 @@ namespace PE.DAL.Repositories
             var result = new ApiGenericResponse();
 
             var companyDT = new DataTable();
-            companyDT.Columns.Add("Address", typeof(string));
-            companyDT.Columns.Add("Email", typeof(string));
             companyDT.Columns.Add("Name", typeof(string));
-            companyDT.Columns.Add("Phonenumbers", typeof(int));
+            companyDT.Columns.Add("Address", typeof(string));
+            companyDT.Columns.Add("Email", typeof(string));          
+            companyDT.Columns.Add("Phonenumbers", typeof(string));
 
-            companyDT.Rows.Add(company.Address,
+            companyDT.Rows.Add(company.Name,
                                      company.Email,
-                                     company.Name,
+                                     company.Address,
                                      company.Phonenumbers);
 
             var spParams = new DynamicParameters(new

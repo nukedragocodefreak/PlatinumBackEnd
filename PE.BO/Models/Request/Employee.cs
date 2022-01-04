@@ -8,7 +8,7 @@ namespace PE.BO.Models.Request
 {
     public class Employee
     {
-        public int EmployeeID { get; set; } //(int, not null)
+        //public int EmployeeID { get; set; } //(int, not null)
         public string EmployeeCode { get; set; } //(varchar(50), not null)
         public string FirstName { get; set; } //(varchar(50), not null)
         public string LastName { get; set; } //(varchar(50), not null)

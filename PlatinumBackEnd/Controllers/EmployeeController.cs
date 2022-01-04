@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using PE.BO.Models.Request;
+using PE.DAL.Repository;
 
 namespace PlatinumBackEnd.Controllers
 {
@@ -12,11 +14,30 @@ namespace PlatinumBackEnd.Controllers
     public class EmployeeController : ControllerBase
     {
         private readonly ILogger<EmployeeController> _logger;
-
-        public EmployeeController(ILogger<EmployeeController> logger)
+        private readonly IEmployeeBLL _employeeRepository;
+        public EmployeeController(ILogger<EmployeeController> logger, IEmployeeBLL employeeRepository)
         {
             _logger = logger;
+            _employeeRepository = employeeRepository;
         }
 
+        [HttpPost]
+        public async Task<IActionResult> PostAsync([FromBody] Employee employee)
+        {
+            try
+            {
+                var saveResponse = await _employeeRepository.SaveEmployee(employee);
+                if (saveResponse.ReturnStatus != 1)
+                {
+                    return BadRequest(saveResponse.ReturnMessage);
+                }
+                return Ok("Employee Details saved successfully.");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"EmployeeController: SaveEmployee - {ex}");
+                return StatusCode(500, "An error occurred. Please try again.");
+            }
+        }
     }
 }

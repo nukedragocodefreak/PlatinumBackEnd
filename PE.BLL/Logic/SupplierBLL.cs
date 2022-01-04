@@ -12,8 +12,8 @@ namespace PE.BLL.Logic
 {
     public class SupplierBLL : ISupplierBLL
     {
-        private readonly SupplierRepository _supplierRepository;
-        public SupplierBLL(SupplierRepository supplierRepository)
+        private readonly ISupplierRepository _supplierRepository;
+        public SupplierBLL(ISupplierRepository supplierRepository)
         {
             _supplierRepository = supplierRepository;
         }

@@ -12,8 +12,8 @@ namespace PE.BLL.Logic
 {
     public class InvoiceBLL : IInvoiceBLL
     {
-        private readonly InvoiceRepository _invoiceRepository;
-        public InvoiceBLL(InvoiceRepository invoiceRepository)
+        private readonly IInvoiceRepository _invoiceRepository;
+        public InvoiceBLL(IInvoiceRepository invoiceRepository)
         {
             _invoiceRepository = invoiceRepository;
         }

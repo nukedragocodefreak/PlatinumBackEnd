@@ -26,17 +26,18 @@ namespace PE.DAL.Repositories
             var result = new ApiGenericResponse();
 
             var bankDetailDT = new DataTable();
-            bankDetailDT.Columns.Add("AccountNumber", typeof(int));
-            bankDetailDT.Columns.Add("BankName", typeof(string));
-            bankDetailDT.Columns.Add("BranchCode", typeof(string));
+           
             bankDetailDT.Columns.Add("FK_BankID", typeof(int));
             bankDetailDT.Columns.Add("FK_CompanyID", typeof(int));
+            bankDetailDT.Columns.Add("BranchName", typeof(string));
+            bankDetailDT.Columns.Add("BranchCode", typeof(string));
+            bankDetailDT.Columns.Add("AccountNumber", typeof(int));
 
-            bankDetailDT.Rows.Add(bankDetail.AccountNumber,
-                                     bankDetail.BankName,
+            bankDetailDT.Rows.Add(bankDetail.FK_BankID,
+                                     bankDetail.FK_CompanyID,
+                                     bankDetail.BranchName,
                                      bankDetail.BranchCode,
-                                     bankDetail.FK_BankID,
-                                     bankDetail.FK_CompanyID);
+                                     bankDetail.AccountNumber);
             var spParams = new DynamicParameters(new
             {
                 bankDetail = bankDetailDT
