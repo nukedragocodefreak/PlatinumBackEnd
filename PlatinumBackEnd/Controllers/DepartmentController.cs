@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace PlatinumBackEnd.Controllers
 {
-    public class DepartmentController : Controller
+    public class DepartmentController : ControllerBase
     {
-        public IActionResult Index()
+        private readonly ILogger<DepartmentController> _logger;
+
+        public DepartmentController(ILogger<DepartmentController> logger)
         {
-            return View();
+            _logger = logger;
         }
+
     }
 }

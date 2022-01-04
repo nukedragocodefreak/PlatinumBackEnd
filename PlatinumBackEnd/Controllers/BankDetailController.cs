@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace PlatinumBackEnd.Controllers
 {
-    public class BankDetailController : Controller
+    public class BankDetailController: ControllerBase
     {
-        public IActionResult Index()
+        private readonly ILogger<BankDetailController> _logger;
+
+        public BankDetailController(ILogger<BankDetailController> logger)
         {
-            return View();
+            _logger = logger;
         }
+
     }
 }

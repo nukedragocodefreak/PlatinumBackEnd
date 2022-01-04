@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace PlatinumBackEnd.Controllers
 {
-    public class EmployeeController : Controller
+    [ApiController]
+    [Route("[controller]")]
+    public class EmployeeController : ControllerBase
     {
-        public IActionResult Index()
+        private readonly ILogger<EmployeeController> _logger;
+
+        public EmployeeController(ILogger<EmployeeController> logger)
         {
-            return View();
+            _logger = logger;
         }
+
     }
 }
