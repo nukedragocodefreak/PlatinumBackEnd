@@ -17,6 +17,14 @@ namespace PE.BLL.Logic
         {
             _departmentRepository = departmentRepository;
         }
+
+        public async Task<IEnumerable<DepartmentResponse>> GetDepartment()
+        {
+
+            var saveResponse = await _departmentRepository.GetDepartment();
+            return saveResponse;
+        }
+
         public async Task<ApiGenericResponse> SaveDepartment(Department department)
         {
             var saveResponse = await _departmentRepository.SaveDepartment(department);

@@ -11,5 +11,7 @@ namespace PE.DAL.Repository
     public interface  IEmployeeBLL
     {
         public Task<ApiGenericResponse> SaveEmployee(Employee employee);
+
+        public Task<IEnumerable<Position>> GetPosition();
     }
 }

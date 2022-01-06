@@ -11,5 +11,7 @@ namespace PE.DAL.Repository
     public interface IBankDetailRepository
     {
         public Task<ApiGenericResponse> SaveBankDetail(BankDetail bankDetail);
+        public Task<IEnumerable<Bank>> GetBank();
+
     }
 }

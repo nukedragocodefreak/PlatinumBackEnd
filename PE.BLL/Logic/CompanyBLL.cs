@@ -17,6 +17,13 @@ namespace PE.BLL.Logic
         {
             _companyRepository = companyRepository;
         }
+
+        public async Task<IEnumerable<Company>> GetCompany()
+        {
+            var saveResponse = await _companyRepository.GetCompany();
+            return saveResponse;
+        }
+
         public async Task<ApiGenericResponse> SaveCompany(Company company)
         {
             var saveResponse = await _companyRepository.SaveCompany(company);

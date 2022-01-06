@@ -20,6 +20,15 @@ namespace PE.DAL.Repositories
             _connection = connection;
         }
 
+        public async Task<IEnumerable<Company>> GetCompany()
+        {
+            using (IDbConnection conn = _connection.GetMyConnection(BO.Enums.ORM.Dapper))
+            {
+                var resp = await conn.QueryAsync<Company>("GetCompany", commandType: CommandType.StoredProcedure);
+                return resp.ToList();
+            }
+        }
+
         public async Task<ApiGenericResponse> SaveCompany(Company company)
         {
             var result = new ApiGenericResponse();

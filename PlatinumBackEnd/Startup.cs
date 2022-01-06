@@ -34,6 +34,12 @@ namespace PlatinumBackEnd
         {
 
             services.AddControllers();
+            services.AddCors(o => o.AddPolicy("CentralPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PlatinumBackEnd", Version = "v1" });
@@ -70,6 +76,7 @@ namespace PlatinumBackEnd
             }
 
             app.UseHttpsRedirection();
+            app.UseCors("CentralPolicy");
 
             app.UseRouting();
 

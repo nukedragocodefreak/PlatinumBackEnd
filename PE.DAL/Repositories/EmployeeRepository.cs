@@ -20,6 +20,16 @@ namespace PE.DAL.Repositories
         {
             _connection = connection;
         }
+
+        public async Task<IEnumerable<Position>> GetPosition()
+        {
+            using (IDbConnection conn = _connection.GetMyConnection(BO.Enums.ORM.Dapper))
+            {
+                var resp = await conn.QueryAsync<Position>("GetPosition", commandType: CommandType.StoredProcedure);
+                return resp.ToList();
+            }
+        }
+
         public async Task<ApiGenericResponse> SaveEmployee(Employee employee)
         {
             var result = new ApiGenericResponse();

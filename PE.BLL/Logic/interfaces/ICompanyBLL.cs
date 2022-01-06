@@ -11,5 +11,6 @@ namespace PE.DAL.Repository
     public interface ICompanyBLL
     {
         public Task<ApiGenericResponse> SaveCompany(Company company);
+        public Task<IEnumerable<Company>> GetCompany();
     }
 }

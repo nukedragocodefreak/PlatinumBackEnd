@@ -19,7 +19,18 @@ namespace PE.DAL.Repositories
         {
             _connection = connection;
         }
-        public async Task<ApiGenericResponse> SaveDepartment(Department department)
+
+        public async Task<IEnumerable<DepartmentResponse>> GetDepartment()
+        {
+            using (IDbConnection conn = _connection.GetMyConnection(BO.Enums.ORM.Dapper))
+            {
+                var resp = await conn.QueryAsync<DepartmentResponse>("GetDepartment", commandType: CommandType.StoredProcedure);
+                return resp.ToList();
+
+            }
+        }
+
+        public async Task<ApiGenericResponse> SaveDepartment(DepartmentResponse department)
         {
             var result = new ApiGenericResponse();
 
@@ -39,6 +50,11 @@ namespace PE.DAL.Repositories
             }
 
             return result;
+        }
+
+        public Task<ApiGenericResponse> SaveDepartment(Department department)
+        {
+            throw new NotImplementedException();
         }
     }
 }

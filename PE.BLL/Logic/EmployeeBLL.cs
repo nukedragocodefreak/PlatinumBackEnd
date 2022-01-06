@@ -17,6 +17,13 @@ namespace PE.BLL.Logic
         {
             _employeeRepository = employeeRepository;
         }
+
+        public async Task<IEnumerable<Position>> GetPosition()
+        {
+            var saveResponse = await _employeeRepository.GetPosition();
+            return saveResponse;
+        }
+
         public async Task<ApiGenericResponse> SaveEmployee(Employee employee)
         {
             var saveResponse = await _employeeRepository.SaveEmployee(employee);

@@ -24,17 +24,18 @@ namespace PE.DAL.Repositories
             var result = new ApiGenericResponse();
 
             var supplierDT = new DataTable();
-            supplierDT.Columns.Add("Address", typeof(string));
-            supplierDT.Columns.Add("Email", typeof(string));
-            supplierDT.Columns.Add("Name", typeof(string));
-            supplierDT.Columns.Add("Phonenumbers", typeof(int));
-            supplierDT.Columns.Add("FK_InvoiceID", typeof(int));
 
-            supplierDT.Rows.Add(supplier.Address,
-                                     supplier.Email,
+            supplierDT.Columns.Add("FK_InvoiceID", typeof(int));
+            supplierDT.Columns.Add("Name", typeof(string));
+            supplierDT.Columns.Add("Address", typeof(string));
+            supplierDT.Columns.Add("Phonenumbers", typeof(int));
+            supplierDT.Columns.Add("Email", typeof(string));
+
+            supplierDT.Rows.Add(supplier.FK_InvoiceID,
                                      supplier.Name,
+                                     supplier.Address,
                                      supplier.Phonenumbers,
-                                     supplier.FK_InvoiceID);
+                                     supplier.Email);
 
             var spParams = new DynamicParameters(new
             {

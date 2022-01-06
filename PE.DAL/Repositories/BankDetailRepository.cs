@@ -21,6 +21,15 @@ namespace PE.DAL.Repositories
             _connection = connection;
         }
 
+        public async Task<IEnumerable<Bank>> GetBank()
+        {
+            using (IDbConnection conn = _connection.GetMyConnection(BO.Enums.ORM.Dapper))
+            {
+                var resp = await conn.QueryAsync<Bank>("GetBank", commandType: CommandType.StoredProcedure);
+                return resp.ToList();
+            }
+        }
+
         public async Task<ApiGenericResponse> SaveBankDetail(BankDetail bankDetail)
         {
             var result = new ApiGenericResponse();

@@ -17,6 +17,13 @@ namespace PE.BLL.Logic
         {
             _bankDetailRepository = bankDetailRepository;
         }
+
+        public async Task<IEnumerable<Bank>> GetBank()
+        {
+            var saveResponse = await _bankDetailRepository.GetBank();
+            return saveResponse;
+        }
+
         public async Task<ApiGenericResponse> SaveBankDetail(BankDetail bankDetail)
         {
             var saveResponse = await _bankDetailRepository.SaveBankDetail(bankDetail);

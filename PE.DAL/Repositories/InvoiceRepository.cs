@@ -24,17 +24,19 @@ namespace PE.DAL.Repositories
             var result = new ApiGenericResponse();
 
             var invoiceDT = new DataTable();
+            invoiceDT.Columns.Add("InvoiceNumber", typeof(string));
+            invoiceDT.Columns.Add("Date", typeof(DateTime));
+            invoiceDT.Columns.Add("location", typeof(string));
+            invoiceDT.Columns.Add("FIleName", typeof(string));
             invoiceDT.Columns.Add("FK_CoverSheetID", typeof(int));
             invoiceDT.Columns.Add("FK_SupplierID", typeof(int));
-            invoiceDT.Columns.Add("FIleName", typeof(string));
-            invoiceDT.Columns.Add("InvoiceNumber", typeof(string));
-            invoiceDT.Columns.Add("location", typeof(string));
 
-            invoiceDT.Rows.Add(invoice.FK_CoverSheetID,
-                                     invoice.FK_SupplierID,
+            invoiceDT.Rows.Add(invoice.InvoiceNumber,
+                                     invoice.Date,
+                                     invoice.location,
                                      invoice.FIleName,
-                                     invoice.InvoiceNumber,
-                                     invoice.location);
+                                     invoice.FK_CoverSheetID,
+                                     invoice.FK_SupplierID);
 
             var spParams = new DynamicParameters(new
             {

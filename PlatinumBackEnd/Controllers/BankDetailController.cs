@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PE.BO.Models.Request;
+using PE.BO.Models.Response;
 using PE.DAL.Repository;
 
 namespace PlatinumBackEnd.Controllers
@@ -40,6 +41,21 @@ namespace PlatinumBackEnd.Controllers
                 _logger.LogError($"BankDetailController: SaveBankDetail - {ex}");
                 return StatusCode(500, "An error occurred. Please try again.");
              }
+        }
+
+        [HttpGet("GetBanks")]
+        public async Task<IActionResult> GetBanks()
+        {
+            try
+            {
+                var data = await _bankDetailRepository.GetBank();
+                return Ok(new GetResponse { ResponseType = 1, ResponseObject = data, ResponseMessage = "Success." });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"BankDetailController: GetBank - {ex}");
+                return StatusCode(500, "An error occurred. Please try again.");
+            }
         }
 
     }
