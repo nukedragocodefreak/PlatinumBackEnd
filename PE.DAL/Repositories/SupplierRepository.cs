@@ -19,6 +19,16 @@ namespace PE.DAL.Repositories
         {
             _connection = connection;
         }
+
+        public async Task<IEnumerable<Supplier>> GetSupplier()
+        {
+            using (IDbConnection conn = _connection.GetMyConnection(BO.Enums.ORM.Dapper))
+            {
+                var resp = await conn.QueryAsync<Supplier>("GetSupplier", commandType: CommandType.StoredProcedure);
+                return resp.ToList();
+            }
+        }
+
         public async Task<ApiGenericResponse> SaveSupplier(Supplier supplier)
         {
             var result = new ApiGenericResponse();
@@ -31,8 +41,7 @@ namespace PE.DAL.Repositories
             supplierDT.Columns.Add("Phonenumbers", typeof(int));
             supplierDT.Columns.Add("Email", typeof(string));
 
-            supplierDT.Rows.Add(supplier.FK_InvoiceID,
-                                     supplier.Name,
+            supplierDT.Rows.Add( supplier.Name,
                                      supplier.Address,
                                      supplier.Phonenumbers,
                                      supplier.Email);

@@ -11,5 +11,6 @@ namespace PE.DAL.Interfaces
     public interface ISupplierBLL
     {
         public Task<ApiGenericResponse> SaveCoverSheet(Supplier supplier);
+        public Task<IEnumerable<Supplier>> GetSupplier();
     }
 }

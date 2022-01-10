@@ -22,5 +22,10 @@ namespace PE.BLL.Logic
             var saveResponse = await _supplierRepository.SaveSupplier(supplier);
             return saveResponse;
         }
+        public async Task<IEnumerable<Supplier>> GetSupplier()
+        {
+            var saveResponse = await _supplierRepository.GetSupplier();
+            return saveResponse;
+        }
     }
 }

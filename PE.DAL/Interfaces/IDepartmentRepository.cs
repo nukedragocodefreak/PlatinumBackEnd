@@ -11,6 +11,6 @@ namespace PE.DAL.Repository
     public interface IDepartmentRepository
     {
         public Task<ApiGenericResponse> SaveDepartment(Department department);
-        public Task<IEnumerable<DepartmentResponse>> GetDepartment();
+        public Task<IEnumerable<Department>> GetDepartment();
     }
 }

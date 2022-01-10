@@ -11,5 +11,6 @@ namespace PE.DAL.Interfaces
     public interface ISupplierRepository
     {
         public Task<ApiGenericResponse> SaveSupplier(Supplier supplier);
+        public Task<IEnumerable<Supplier>> GetSupplier();
     }
 }
