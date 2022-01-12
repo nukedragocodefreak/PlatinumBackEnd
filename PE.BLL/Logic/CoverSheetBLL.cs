@@ -17,6 +17,13 @@ namespace PE.BLL.Logic
         {
             _coverSheetRepository = coverSheetRepository;
         }
+
+        public async Task<IEnumerable<CoverSheet>> GetCoverSheet()
+        {
+            var saveResponse = await _coverSheetRepository.GetCoverSheet();
+            return saveResponse;
+        }
+
         public async Task<ApiGenericResponse> SaveCoverSheet(CoverSheet coverSheet)
         {
             var saveResponse = await _coverSheetRepository.SaveCoverSheet(coverSheet);

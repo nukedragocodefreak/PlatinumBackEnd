@@ -19,6 +19,16 @@ namespace PE.DAL.Repositories
         {
             _connection = connection;
         }
+
+        public async Task<IEnumerable<CoverSheet>> GetCoverSheet()
+        {
+            using (IDbConnection conn = _connection.GetMyConnection(BO.Enums.ORM.Dapper))
+            {
+                var resp = await conn.QueryAsync<CoverSheet>("GetCoverSheet", commandType: CommandType.StoredProcedure);
+                return resp.ToList();
+            }
+        }
+
         public async Task<ApiGenericResponse> SaveCoverSheet(CoverSheet coverSheet)
         {
             var result = new ApiGenericResponse();

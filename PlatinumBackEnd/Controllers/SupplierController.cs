@@ -6,52 +6,53 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PE.BO.Models.Request;
 using PE.BO.Models.Response;
+using PE.DAL.Interfaces;
 using PE.DAL.Repository;
 
 namespace PlatinumBackEnd.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CoverSheetController : ControllerBase
+    public class SupplierController : ControllerBase
     {
-        private readonly ILogger<CoverSheetController> _logger;
-        private readonly ICoverSheetBLL _coverSheetRepository;
-        public CoverSheetController(ILogger<CoverSheetController> logger, ICoverSheetBLL coverSheetRepository)
+        private readonly ILogger<SupplierController> _logger;
+        private readonly ISupplierBLL _supplierRepository;
+        public SupplierController(ILogger<SupplierController> logger, ISupplierBLL supplierRepository)
         {
             _logger = logger;
-            _coverSheetRepository = coverSheetRepository;
+            _supplierRepository = supplierRepository;
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostAsync([FromBody] CoverSheet coverSheet)
+        public async Task<IActionResult> PostAsync([FromBody] Supplier supplier)
         {
             try
             {
-                var saveResponse = await _coverSheetRepository.SaveCoverSheet(coverSheet);
+                var saveResponse = await _supplierRepository.SaveSupplier(supplier);
                 if (saveResponse.ReturnStatus != 1)
                 {
                     return BadRequest(saveResponse.ReturnMessage);
                 }
-                return Ok("CoverSheet Details saved successfully.");
+                return Ok("Supplier Details saved successfully.");
             }
             catch (Exception ex)
             {
-                _logger.LogError($"CoverSheetController: SaveCoverSheet - {ex}");
+                _logger.LogError($"CompanyController: SaveBankDetail - {ex}");
                 return StatusCode(500, "An error occurred. Please try again.");
             }
         }
 
-        [HttpGet("GetCoverSheet")]
-        public async Task<IActionResult> GetEmployee()
+        [HttpGet("GetSupplier")]
+        public async Task<IActionResult> GetSupplier()
         {
             try
             {
-                var data = await _coverSheetRepository.GetCoverSheet();
+                var data = await _supplierRepository.GetSupplier();
                 return Ok(new GetResponse { ResponseType = 1, ResponseObject = data, ResponseMessage = "Success." });
             }
             catch (Exception ex)
             {
-                _logger.LogError($"CoverSheetController: GetCoverSheet - {ex}");
+                _logger.LogError($"CompanyController: GetCompany - {ex}");
                 return StatusCode(500, "An error occurred. Please try again.");
             }
         }

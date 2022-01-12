@@ -11,5 +11,6 @@ namespace PE.DAL.Repository
     public interface ICoverSheetBLL
     {
         public Task<ApiGenericResponse> SaveCoverSheet(CoverSheet coverSheet);
+        public Task<IEnumerable<CoverSheet>> GetCoverSheet();
     }
 }

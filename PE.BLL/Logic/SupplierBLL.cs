@@ -17,7 +17,7 @@ namespace PE.BLL.Logic
         {
             _supplierRepository = supplierRepository;
         }
-        public async Task<ApiGenericResponse> SaveCoverSheet(Supplier supplier)
+        public async Task<ApiGenericResponse> SaveSupplier(Supplier supplier)
         {
             var saveResponse = await _supplierRepository.SaveSupplier(supplier);
             return saveResponse;

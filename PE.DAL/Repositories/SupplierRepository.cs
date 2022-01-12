@@ -35,7 +35,6 @@ namespace PE.DAL.Repositories
 
             var supplierDT = new DataTable();
 
-            supplierDT.Columns.Add("FK_InvoiceID", typeof(int));
             supplierDT.Columns.Add("Name", typeof(string));
             supplierDT.Columns.Add("Address", typeof(string));
             supplierDT.Columns.Add("Phonenumbers", typeof(int));
