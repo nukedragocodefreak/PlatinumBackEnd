@@ -14,5 +14,6 @@ namespace PE.DAL.Repository
 
         public Task<IEnumerable<Position>> GetPosition();
         public Task<IEnumerable<Employee>> GetEmployee();
+        public Task<IEnumerable<Employee>> UserLogin(Users users);
     }
 }

@@ -70,5 +70,29 @@ namespace PE.DAL.Repositories
 
             return result;
         }
+
+        public async Task<ApiGenericResponse> UserLogin(Users users)
+        {
+            var result = new ApiGenericResponse();
+
+            var usersDT = new DataTable();
+            usersDT.Columns.Add("EmployeeCode", typeof(string));
+            usersDT.Columns.Add("Password", typeof(string));
+
+            usersDT.Rows.Add(users.EmployeeCode,
+                                     users.Password);
+
+            var spParams = new DynamicParameters(new
+            {
+                employee = usersDT
+            });
+
+            using (IDbConnection conn = _connection.GetMyConnection(BO.Enums.ORM.Dapper))
+            {
+                result = await conn.QueryFirstOrDefaultAsync<ApiGenericResponse>("GetUser", spParams, commandType: CommandType.StoredProcedure);
+            }
+
+            return result;
+        }
     }
 }

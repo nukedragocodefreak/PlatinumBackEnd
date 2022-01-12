@@ -16,6 +16,7 @@ namespace PE.BO.Models.Request
         public DateTime DateOfPayment { get; set; } //(datetime, null)
         public int ManagerID { get; set; } //(int, null)
         public int CompanyID { get; set; } //(int, null)
+        public int FK_PaymentStatusID { get; set; } //(int, null)
     }
 
 }

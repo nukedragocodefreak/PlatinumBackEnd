@@ -35,5 +35,11 @@ namespace PE.BLL.Logic
             var saveResponse = await _employeeRepository.SaveEmployee(employee);
             return saveResponse;
         }
+
+        public async Task<IEnumerable<Employee>> UserLogin(Users users )
+        {
+            var saveResponse = await _employeeRepository.UserLogin(users);
+            return saveResponse;
+        }
     }
 }

@@ -69,5 +69,20 @@ namespace PlatinumBackEnd.Controllers
                 return StatusCode(500, "An error occurred. Please try again.");
             }
         }
+
+        [HttpGet("UserLogin")]
+        public async Task<IActionResult> UserLogin()
+        {
+            try
+            {
+                var data = await _employeeRepository.GetEmployee();
+                return Ok(new GetResponse { ResponseType = 1, ResponseObject = data, ResponseMessage = "Success." });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"EmployeeController: GetEmployee - {ex}");
+                return StatusCode(500, "An error occurred. Please try again.");
+            }
+        }
     }
 }
