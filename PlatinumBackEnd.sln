@@ -5,11 +5,13 @@ VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlatinumBackEnd", "PlatinumBackEnd\PlatinumBackEnd.csproj", "{A9B3827A-7CC6-470B-995D-55D7F1D9DDEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PE.DAL", "PE.DAL\PE.DAL.csproj", "{0DF01E46-A720-484E-A4DE-A24FB561E9B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PE.DAL", "PE.DAL\PE.DAL.csproj", "{0DF01E46-A720-484E-A4DE-A24FB561E9B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PE.BO", "PE.BO\PE.BO.csproj", "{A854A8FF-BB63-43FE-8758-654A2DE55566}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PE.BO", "PE.BO\PE.BO.csproj", "{A854A8FF-BB63-43FE-8758-654A2DE55566}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PE.BLL", "PE.BLL\PE.BLL.csproj", "{7BA19F41-ED3A-489E-A03E-5274E839430E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PE.BLL", "PE.BLL\PE.BLL.csproj", "{7BA19F41-ED3A-489E-A03E-5274E839430E}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "PlatinumLifeDatabase", "PlatinumLifeDatabase\PlatinumLifeDatabase.sqlproj", "{D8D0F888-78D1-4F5A-81A4-219831290928}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,12 @@ Global
 		{7BA19F41-ED3A-489E-A03E-5274E839430E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BA19F41-ED3A-489E-A03E-5274E839430E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BA19F41-ED3A-489E-A03E-5274E839430E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8D0F888-78D1-4F5A-81A4-219831290928}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8D0F888-78D1-4F5A-81A4-219831290928}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8D0F888-78D1-4F5A-81A4-219831290928}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D8D0F888-78D1-4F5A-81A4-219831290928}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8D0F888-78D1-4F5A-81A4-219831290928}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8D0F888-78D1-4F5A-81A4-219831290928}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
