@@ -70,17 +70,17 @@ namespace PlatinumBackEnd.Controllers
             }
         }
 
-        [HttpGet("UserLogin")]
-        public async Task<IActionResult> UserLogin()
+        [HttpPost("UserLogin")]
+        public async Task<IActionResult> UserLogin([FromBody] Users users)
         {
             try
             {
-                var data = await _employeeRepository.GetEmployee();
+                var data = await _employeeRepository.UserLogin(users);
                 return Ok(new GetResponse { ResponseType = 1, ResponseObject = data, ResponseMessage = "Success." });
             }
             catch (Exception ex)
             {
-                _logger.LogError($"EmployeeController: GetEmployee - {ex}");
+                _logger.LogError($"EmployeeController: UserLogin - {ex}");
                 return StatusCode(500, "An error occurred. Please try again.");
             }
         }

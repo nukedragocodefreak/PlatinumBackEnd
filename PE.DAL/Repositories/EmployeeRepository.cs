@@ -71,28 +71,27 @@ namespace PE.DAL.Repositories
             return result;
         }
 
-        public async Task<ApiGenericResponse> UserLogin(Users users)
+        public async Task<IEnumerable<Employee>> UserLogin(Users users)
         {
-            var result = new ApiGenericResponse();
-
             var usersDT = new DataTable();
             usersDT.Columns.Add("EmployeeCode", typeof(string));
             usersDT.Columns.Add("Password", typeof(string));
+            usersDT.Columns.Add("Position", typeof(int));
 
             usersDT.Rows.Add(users.EmployeeCode,
-                                     users.Password);
+                                     users.Password,
+                                     users.Position);
 
             var spParams = new DynamicParameters(new
             {
-                employee = usersDT
+                user = usersDT
             });
 
             using (IDbConnection conn = _connection.GetMyConnection(BO.Enums.ORM.Dapper))
             {
-                result = await conn.QueryFirstOrDefaultAsync<ApiGenericResponse>("GetUser", spParams, commandType: CommandType.StoredProcedure);
+                return await conn.QueryAsync<Employee>("GetUser", spParams, commandType: CommandType.StoredProcedure);
+             
             }
-
-            return result;
         }
     }
 }

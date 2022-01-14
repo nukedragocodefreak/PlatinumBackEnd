@@ -34,6 +34,7 @@ namespace PE.DAL.Repositories
             var result = new ApiGenericResponse();
 
             var coverSheetDT = new DataTable();
+            coverSheetDT.Columns.Add("CoverSheetID", typeof(int));
             coverSheetDT.Columns.Add("FirstName", typeof(string));
             coverSheetDT.Columns.Add("LastName", typeof(string));
             coverSheetDT.Columns.Add("DepartmentID", typeof(int));
@@ -41,14 +42,17 @@ namespace PE.DAL.Repositories
             coverSheetDT.Columns.Add("DateOfPayment", typeof(DateTime));
             coverSheetDT.Columns.Add("ManagerID", typeof(int));
             coverSheetDT.Columns.Add("CompanyID", typeof(int));
+            coverSheetDT.Columns.Add("FK_PaymentStatusID", typeof(int));
+            
 
-            coverSheetDT.Rows.Add(coverSheet.FirstName,
+            coverSheetDT.Rows.Add(coverSheet.CoverSheetID, coverSheet.FirstName,
                                      coverSheet.LastName,
                                      coverSheet.DepartmentID,
                                      coverSheet.DateOfInvoce,
                                      coverSheet.DateOfPayment,
                                      coverSheet.ManagerID,
-                                     coverSheet.CompanyID
+                                     coverSheet.CompanyID,
+                                     coverSheet.FK_PaymentStatusID
                                      );
 
             var spParams = new DynamicParameters(new

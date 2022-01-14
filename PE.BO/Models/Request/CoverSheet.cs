@@ -9,6 +9,8 @@ namespace PE.BO.Models.Request
     public class CoverSheet
     {
         public int CoverSheetID { get; set; } //(int, not null)
+
+        public int CoverSheetNumber { get; set; } //(int, not null)
         public string FirstName { get; set; } //(varchar(50), null)
         public string LastName { get; set; } //(varchar(50), null)
         public int DepartmentID { get; set; } //(int, null)
